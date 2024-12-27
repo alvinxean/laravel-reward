@@ -13,23 +13,6 @@ use Illuminate\Pagination\LengthAwarePaginator;
 
 class AdminController extends Controller
 {
-    // public function dashboard(Request $request)
-    // {
-    //     $period = Period::all();
-
-    //     $periods_id = $request->get('periods_id');
-    //     session(['periods_id' => $periods_id]);
-
-    //     if ($periods_id) {
-    //         $participants = PeriodParticipant::with('user', 'period')
-    //             ->where('periods_id', $periods_id)
-    //             ->get();
-    //     } else {
-    //         $participants = collect();
-    //     }
-
-    //     return view('admin.dashboard', compact('period', 'participants'));
-    // }
     public function dashboard(Request $request)
     {
         $period = Period::all();
@@ -38,14 +21,12 @@ class AdminController extends Controller
         session(['periods_id' => $periods_id]);
 
         if ($periods_id) {
-            // Gunakan paginate dan appends() untuk mempertahankan periods_id di URL
             $participants = PeriodParticipant::with('user', 'period')
                 ->where('periods_id', $periods_id)
-                ->paginate(10)  // Menampilkan 10 peserta per halaman
-                ->appends(['periods_id' => $periods_id]);  // Menambahkan periods_id ke query string
+                ->paginate(10) 
+                ->appends(['periods_id' => $periods_id]);
         } else {
-            // Jika tidak ada request periods_id, tampilkan tanpa paginasi (data kosong atau default)
-            $participants = collect();  // Menggunakan koleksi kosong
+            $participants = collect();
         }
 
         return view('admin.dashboard', compact('period', 'participants'));
