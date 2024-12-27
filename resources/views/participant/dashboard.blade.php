@@ -25,7 +25,7 @@
                                 <h4 class="text-center py-1">Dashboard <span style="font-weight: bold">PESERTA</span> -
                                     <span style="font-weight: bold; color: rgb(255, 72, 0);">CHANDRA PEDULI</span></h4>
                                     <p style="font-size: 12px" class="text-center">Syarat dan Ketentuan <a
-                                            href="http://localhost/web-service/apikko/reward/file_pdf/s&k.pdf" target="_blank">Klik
+                                            href="http://localhost/web-service/apikko/reward/file_pdf/s&k_coba.pdf" target="_blank">Klik
                                             disini</a></p>
 
                                     @if ($currentPeriod)
